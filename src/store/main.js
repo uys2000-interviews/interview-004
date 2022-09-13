@@ -17,6 +17,11 @@ export const useMain = defineStore("page", {
           text: "Order",
           value: "OrderView",
         },
+        {
+          icon: "logout",
+          text: "Logout",
+          value: "LogoutView",
+        },
       ],
       user: {
         user_d: "",

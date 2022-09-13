@@ -1,8 +1,13 @@
 <template>
   <side-menu />
-  <div class="w-full">
-    <h3>{{ pageName }}</h3>
-    <router-view />
+  <!-- Page -->
+  <div class="w-full flex flex-col">
+    <div class="text-2xl p-0 pl-10 py-1 sm:my-10 sm:py-5 sm:pl-10 bg-bg2 w-full overflow-hidden">
+      {{ pageName }}
+    </div>
+    <div class="px-5 h-full w-full">
+      <router-view />
+    </div>
   </div>
 </template>
 <script>
@@ -19,8 +24,10 @@ export default {
   },
   computed: {
     pageName: function () {
-      console.log(this.mainStore.page)
-      return this.mainStore.pages.find((i) => i.value == this.mainStore.page).text;
+      const page = this.mainStore.pages.find(
+        (i) => i.value == this.mainStore.page
+      );
+      return page?.text;
     },
   },
 };

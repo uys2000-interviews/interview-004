@@ -11,7 +11,7 @@ export const useEx = defineStore("ex", {
       this.ex = value;
     },
   },
-  exValue: {
+  getters: {
     doubleCount: (state) => state.ex,
   },
 });

@@ -14,6 +14,11 @@ export default [
         path: "order",
         component: () => import("../views/OrderView.vue"),
       },
+      {
+        name: "LogoutView",
+        path: "",
+        component: () => import("../views/LogoutView.vue"),
+      },
     ],
   },
   {

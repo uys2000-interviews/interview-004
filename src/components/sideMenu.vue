@@ -1,7 +1,7 @@
 <template>
-  <!--Tablet + Desktop-->
+  <!--Tablet + Desktop Menu-->
   <div
-    class="hidden sm:block t"
+    class="hidden shrink-0 sm:block h-screen overflow-hidden bg-bg2 t-a "
     :class="{
       'w-[40px]': !isOpen,
       'w-[200px]': isOpen,
@@ -41,10 +41,10 @@
       </span>
     </div>
   </div>
-  <!--Mobil-->
+  <!--Mobil Menu-->
   <div class="block sm:hidden">
     <div
-      class="fixed sm:hidden w-screen t-f overflow-hidden bg-bg"
+      class="fixed sm:hidden w-screen t-f overflow-hidden bg-bg1"
       :class="{
         '-top-[100%]': !isOpen,
         'top-[50%]': isOpen,
