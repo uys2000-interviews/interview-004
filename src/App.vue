@@ -11,8 +11,8 @@ export default {
     };
   },
   computed: {
-    page: function () {
-      return this.mainStore.page;
+    page() {
+      return this.mainStore.getPage;
     },
   },
   mounted() {

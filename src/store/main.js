@@ -5,7 +5,7 @@ export const useMain = defineStore("page", {
     return {
       isLogged: false,
       //pageNames comes from router/routes
-      page: "DashView",
+      page: "",
       pages: [
         {
           icon: "home",
@@ -37,6 +37,6 @@ export const useMain = defineStore("page", {
     },
   },
   getters: {
-    getPage: (state) => (state.isLogged ? this.page : "LoginView"),
+    getPage: (state) => (state.isLogged ? state.page : "LoginView"),
   },
 });

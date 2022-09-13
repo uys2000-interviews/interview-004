@@ -1,8 +1,8 @@
 export default [
   {
-    name: "MainLayout",
-    path: "/",
-    component: () => import("../layouts/MainLayout.vue"),
+    name: "HomeLayout", // in This Layout Side Menu is Same for childrens
+    path: "",
+    component: () => import("../layouts/HomeLayout.vue"),
     children: [
       {
         name: "DashView",

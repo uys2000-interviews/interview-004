@@ -43,7 +43,8 @@ export default {
         ...this.user,
         ...response.body,
       });
-      this.$router.push({ name: this.mainStore.page });
+      this.mainStore.isLogged = true;
+      this.mainStore.setPage("DashView")
     },
     loginEvent: function () {
       axios

@@ -18,7 +18,7 @@
       v-for="btn in mainStore.pages"
       :key="btn"
       class="w-fit menu-btn flex"
-      @click="$router.push({ name: btn.value })"
+      @click="mainStore.setPage(btn.value)"
     >
       <span class="icon text-2xl -mt-1"> {{ btn.icon }}</span>
       <div style></div>
