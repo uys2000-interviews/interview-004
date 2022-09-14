@@ -1,28 +1,51 @@
-<template>  
-<div class="w-fit">
-
-  <label for="data">Sipaiş Tarihi</label>
-  <label for="">Firma İsmi</label>
-
-  <div>
-    <label for="">Ürün Adı</label>
-    <label for="">Miktar</label>
-    <label for="">Tutar</label>
+<template>
+  <div class="w-full max-w-[600px] max-h-full p-4 m-auto">
+    <bar-chart
+      v-if="orderStore.orderList.length > 1"
+      title="General Information"
+      :labels="labels"
+      :datasets="datasets"
+    />
   </div>
-</div>
 </template>
 
 <script>
-//import axios from "axios";
+import barChart from "@/components/charts/barChart.vue";
+import { useOrder } from "@/store/order";
+import { getCompanies, getProductions } from "@/services/dashboard";
+getCompanies, getProductions;
 export default {
   name: "HomeView",
-  mounted() {
-    //axios
-    //  .get("http://localhost:3001/api/login", this.user)
-    //  .then((response) => console.log(response.data))
-    //  .catch((error) => {
-    //    this.errors.push(error);
-    //  });
+  components: { barChart },
+  data() {
+    return {
+      labels: ["Companies", "Production Types"],
+      orderStore: useOrder(),
+    };
+  },
+  computed: {
+    datasets: function () {
+      return [
+        {
+          label: "data",
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+            "rgba(255, 205, 86, 0.2)",
+          ],
+          borderColor: [
+            "rgb(255, 99, 132)",
+            "rgb(255, 159, 64)",
+            "rgb(255, 205, 86)",
+          ],
+          data: [
+            getCompanies(this.orderStore.orderList),
+            getProductions(this.orderStore.orderList),
+          ],
+          borderWidth: 1,
+        },
+      ];
+    },
   },
 };
 </script>

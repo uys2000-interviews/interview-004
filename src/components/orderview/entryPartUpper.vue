@@ -1,24 +1,18 @@
 <template>
-  <div
-    class="bg-bg2 flex flex-wrap justify-center md:justify-around lg:justify-between text-lg"
-  >
-    <div class="text-center sm:text-left">
-      <label for="company-name" class="w-[150px] inline-block">
-        Company Name
-      </label>
+  <div class="w-full overflow-auto">
+    <div class="w-full min-w-[400px] grid grid-cols-4">
+      <div class="bg-bg2 p-1">Company Name</div>
       <input
-        class="bg-bg1 max-w-full rounded-sm mx-2 border-0 px-2"
+        class="bg-bg1 max-w-full rounded-sm mx-2 border-0 px-1"
         type="text"
         name="company-name"
         placeholder="Eti AŞ."
         v-model="orderStore.order.company_name"
       />
-    </div>
-    <div class="text-center sm:text-left">
-      <label for="date" class="w-[150px] inline-block">Date</label>
+      <div class="bg-bg2 p-1">Data</div>
       <input
         name="date"
-        class="bg-bg1 max-w-full rounded-sm mx-2 border-0 px-2 masked"
+        class="bg-bg1 max-w-full rounded-sm mx-2 border-0 px-1 masked"
         type="text"
         v-mask="'##/##/####'"
         placeholder="DD/MM/YYYY"

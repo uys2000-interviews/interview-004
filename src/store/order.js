@@ -17,6 +17,12 @@ export const useOrder = defineStore("order", {
     addOrder(value) {
       this.orderList.push(value);
     },
+    removeOrder(value) {
+      this.orderList.splice(value, 1);
+    },
+    setOrders(value) {
+      this.orderList = value;
+    },
   },
   getters: {
     getReversed: (state) => [...state.orderList].reverse(),

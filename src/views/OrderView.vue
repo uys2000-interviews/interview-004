@@ -1,13 +1,9 @@
 <template>
-  <div class="w-full h-full bg-bg1">
+  <div class="w-full h-full bg-bg1 p-1">
     <entry-part-upper />
+    <entry-part-bottom />
     <show-part>
-      <template v-slot:add>
-        <entry-part-bottom />
-      </template>
-      <template v-slot:data>
-        <data-part />
-      </template>
+      <data-part />
     </show-part>
   </div>
 </template>

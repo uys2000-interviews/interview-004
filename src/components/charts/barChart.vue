@@ -4,28 +4,32 @@
 <script>
 import Chart from "chart.js/auto";
 export default {
-  props: ["labels", "dataSets", "title"],
+  props: ["labels", "datasets", "title"],
+  data() {
+    this.cart = null;
+    return {
+      options: {},
+    };
+  },
+  methods: {
+    createChart: function () {
+      this.chart = new Chart(this.$refs.chart, {
+        type: "bar",
+        data: {
+          labels: this.labels,
+          datasets: this.datasets,
+        },
+        options: this.option,
+      });
+    },
+  },
   mounted() {
-    new Chart(this.$refs.chart, {
-      type: "bar",
-      data: {
-        labels: this.labels,
-        datasets: this.dataSets,
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-        plugins: {
-          title: {
-            display: true,
-            text: this.title,
-          },
-        },
-      },
-    });
+    this.createChart();
+  },
+  watch: {
+    datasets() {
+      this.chart.update();
+    },
   },
 };
 </script>
